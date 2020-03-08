@@ -10,26 +10,26 @@
 
 
 import re
-p= input("Input your password: ")
+
+psw = input('Enter the Password: ')
 x = True
 while x:
-    if (len(p)<6 or len(p)>12):
+    if len(psw) < 6 or len(psw) > 16:
+        print('Your password length is not between 6 to 16 length')
         break
-    elif not re.search("[a-z]",p):
+    elif not re.search('[0-9]',psw):
+        print('you have to use atleast one digit in your password')
         break
-    elif not re.search("[0-9]",p):
+    elif not re.search('[a-z]',psw) or not re.search('[A-Z]',psw):
+        print('you have to use atleast one capital letter in your password')
         break
-    elif not re.search("[A-Z]",p):
-        break
-    elif not re.search("[$#@]",p):
-        break
-    elif re.search("\s",p):
+    elif not re.search('[@#$]',psw):
+        print('you have to use atleast one special character in your password like "@#$"')
         break
     else:
-        print("Valid Password")
-        x=False
+        print('Password is Valid')
+        x = False
         break
-
 if x:
-    print("Not a Valid Password")
+    print('Invalid Password')
 
